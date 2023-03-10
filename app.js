@@ -2,8 +2,11 @@ const express = require('express')
 
 const app = express()
 const port = 3000
+const requests_count = {}
 
 app.use((req, res, next) => {
+    const route = req.url
+    route in requests_count ? requests_count[route]++ : requests_count[route] = 1
     console.log("[" + new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '') + "]: " + req.url)
     next()
 })
@@ -40,6 +43,14 @@ app.get("/users/:name", (req, res) => {
 
 app.get("/somme", (req, res) => {
     res.send("La somme de " + req.query.a + " et " + req.query.b + " est égale à " + (parseInt(req.query.a) + parseInt(req.query.b)))
+})
+
+app.get("/metrics", (req, res) => {
+    res.send({
+        status: "healthy",
+        requestsCount: requests_count,
+        uptime: process.uptime()
+    })
 })
 
 app.use((req, res, next) => {
