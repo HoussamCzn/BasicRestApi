@@ -27,7 +27,7 @@ app.get("/error", (req, res) => {
 })
 
 app.get("/img", (req, res) => {
-    res.sendFile(__dirname + "/img.png")
+    res.download(__dirname + "/img.png")
 })
 
 app.get("/redirectMe", (req, res) => {
