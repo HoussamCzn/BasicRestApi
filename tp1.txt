@@ -1,0 +1,8 @@
+1) Le fichier package.json contient des informations à propos du projet.
+Il aide npm à savoir quelle dépendences sont nécessaires afin de construire le projet.
+
+2) Le fichier package-lock.json stocke les versions des dépendences utilisées.
+Ainsi, peu importe où et quand le projet est construit, les versions des dépendences seront les mêmes.
+
+3) Si une dépendence est présente dans le projet, une personne installant le projet récupérera cette dépendence également.
+--save-dev ajoute le package installé à la liste des dépendences de développement. Une personne tierce installant votre projet avec un "npm install" ne récupérera pas ce package.
