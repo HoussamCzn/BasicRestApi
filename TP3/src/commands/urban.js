@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js')
+const { EmbedBuilder } = require('discord.js')
 const { request } = require('undici')
 
 module.exports = {
@@ -14,6 +15,19 @@ module.exports = {
         const req = await request(`https://api.urbandictionary.com/v0/define?term=${mot}`)
         const { list } = await req.body.json()
         const definition = list[0].definition
-        await interaction.reply(`**${mot}**: ` + definition)
+
+        for (let i = 0; i < list.length; ++i) {
+            const Embed = new EmbedBuilder()
+            .setColor(0x800080)
+            .setTitle(`Définition ${i + 1}: `)
+            .addFields(
+                {
+                    name: mot,
+                    value: list[i].definition
+                },
+            )
+
+            await interaction.channel.send({ embeds:[Embed] })
+        }
     }
 }
