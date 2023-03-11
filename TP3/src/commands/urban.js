@@ -1,5 +1,4 @@
-const { SlashCommandBuilder } = require('discord.js')
-const { EmbedBuilder } = require('discord.js')
+const { SlashCommandBuilder, EmbedBuilder } = require('discord.js')
 const { request } = require('undici')
 
 module.exports = {
@@ -14,7 +13,6 @@ module.exports = {
         const mot = interaction.options.getString('mot')
         const req = await request(`https://api.urbandictionary.com/v0/define?term=${mot}`)
         const { list } = await req.body.json()
-        const definition = list[0].definition
 
         for (let i = 0; i < list.length; ++i) {
             const Embed = new EmbedBuilder()
