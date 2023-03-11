@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require('discord.js')
+const { SlashCommandBuilder, EmbedBuilder } = require('discord.js')
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -7,7 +7,7 @@ module.exports = {
         .addSubcommand(subcommand =>
             subcommand
                 .setName('user')
-                .setDescription('Renvoie des informations sur l\'utilisateur mentionné.')
+                .setDescription('Renvoie des informations sur un utilisateur.')
                 .addUserOption((option) =>
                     option
                         .setName('cible')
@@ -21,12 +21,62 @@ module.exports = {
     async execute(interaction) {
         const subcommand = interaction.options.getSubcommand();
         if (subcommand === 'user') {
-            const user = interaction.options.getUser('cible') || interaction.member.user;
-            const date = new Date(user.createdAt);
-            await interaction.reply(`Nom d'utilisateur: ${user.username}\nA rejoint le serveur le: ${date}`);
+            const user = interaction.options.getUser('cible') || interaction.user;
+            const member = interaction.guild.members.cache.get(user.id);
+            const { username, discriminator, id, avatar } = user;
+            const createdAtDate = new Date(user.createdAt).toISOString().split('T')[0]
+            const joinedAtDate = new Date(member.joinedAt).toISOString().split('T')[0];
+            const embed = new EmbedBuilder()
+                .setAuthor({
+                    name: `${username}#${discriminator}`,
+                    iconURL: `https://cdn.discordapp.com/avatars/${id}/${avatar}.png`,
+                    url: `https://discord.com/users/${id}`
+                })
+                .setColor(0x800080)
+                .addFields(
+                    {
+                        name: 'Nom',
+                        value: username,
+                        inline: false
+                    },
+                    {
+                        name: 'Date de création du compte',
+                        value: createdAtDate,
+                        inline: false
+                    },
+                    {
+                        name: 'Date d\'arrivée sur le serveur',
+                        value: joinedAtDate,
+                        inline: false
+                    },
+                );
+
+            await interaction.reply({ embeds: [embed] });
         } else if (subcommand === 'server') {
-            await interaction.reply(
-                `Nom du serveur: ${interaction.guild.name}\nNombre de membres: ${interaction.guild.memberCount}`);
+            const name = interaction.guild.name;
+            const memberCount = interaction.guild.memberCount
+            const createdAtDate = new Date(interaction.guild.createdAt).toISOString().split('T')[0];
+            const embed = new EmbedBuilder()
+                .setColor(0x800080)
+                .addFields(
+                    {
+                        name: 'Nom du serveur',
+                        value: name,
+                        inline: false
+                    },
+                    {
+                        name: 'Nombre de membres',
+                        value: `${memberCount}`,
+                        inline: false
+                    },
+                    {
+                        name: 'Date de création',
+                        value: createdAtDate,
+                        inline: false
+                    },
+                );
+
+            await interaction.reply({ embeds: [embed] });
         }
     }
 }
