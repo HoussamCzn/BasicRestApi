@@ -64,6 +64,7 @@ async function updateMany(collectionName, filter, update, options = {}) {
     try {
         const collection = getCollection(collectionName);
         const result = await collection.updateMany(filter, update, options);
+        return result;
     } catch (e) {
         console.log(`Erreur lors de l\'exécution de la fonction updateMany avec les paramètres suivants: ${filter}`);
         console.log(e);
