@@ -107,3 +107,15 @@ async function deleteMany(collectionName, filter, options = {}) {
         throw e;
     }
 }
+
+module.exports = {
+    findOne,
+    find,
+    insertOne,
+    insertMany,
+    updateOne,
+    updateMany,
+    replace,
+    deleteOne,
+    deleteMany
+};
