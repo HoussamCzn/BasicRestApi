@@ -20,7 +20,7 @@ async function connectTodB() {
         // Ensures that the client will close when you finish/error
         console.log(JSON.stringify(err));
         await client.close();
-        throw e;
+        throw err;
     }
 }
 
