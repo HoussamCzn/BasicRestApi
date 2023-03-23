@@ -3,17 +3,17 @@ module.exports = {
     "description": "Représente un utilisateur",
     "type": "object",
     "properties": {
-        "nom": {
+        "last_name": {
             "type": "string"
         },
-        "prénom": {
+        "first_name": {
             "type": "string"
         },
         "email": {
             "type": "string",
             "format": "email"
         },
-        "naissance": {
+        "birthday": {
             "type": "string"
         },
         "watchlists": {
@@ -28,6 +28,6 @@ module.exports = {
             "format": "uuid"
         }
     },
-    "required": ["id", "nom", "prénom", "e-mail", "naissance"],
+    "required": ["id", "last_name", "first_name", "email", "birthday"],
     "additionalProperties": false
 }

@@ -3,16 +3,16 @@ module.exports = {
     "description": "Représente un film ou une série",
     "type": "object",
     "properties": {
-        "titre": {
+        "title": {
             "type": "string"
         },
         "genre": {
             "type": "string",
         },
-        "langue": {
+        "language": {
             "type": "string",
         },
-        "durée": {
+        "duration": {
             "type": "number"
         },
         "tmdb_id": {
@@ -23,6 +23,6 @@ module.exports = {
             "format": "uuid"
         }
     },
-    "required": ["id", "titre", "genre", "langue", "durée", "tmdb_id"],
+    "required": ["id", "title", "genre", "language", "duration", "tmdb_id"],
     "additionalProperties": false
 }

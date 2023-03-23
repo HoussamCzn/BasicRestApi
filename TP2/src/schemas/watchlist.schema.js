@@ -10,12 +10,12 @@ module.exports = {
                 "properties": {
                     "item_id": "number",
                     "statut": {
-                        "enum": ["à voir", "en cours", "terminé", "abandonné"]
+                        "enum": ["must-see", "ongoing", "finished", "dropped"]
                     }
                 }
             }
         },
-        "propriétaire": {
+        "owner": {
             "type": "string",
             "format": "uuid"
         },
@@ -24,6 +24,6 @@ module.exports = {
             "format": "uuid"
         }
     },
-    "required": ["propriétaire", "id"],
+    "required": ["owner", "id"],
     "additionalProperties": false
 }
