@@ -9,7 +9,7 @@ module.exports = {
         "prénom": {
             "type": "string"
         },
-        "e-mail": {
+        "email": {
             "type": "string",
             "format": "email"
         },
@@ -18,7 +18,7 @@ module.exports = {
         },
         "watchlists": {
             "type": "array",
-            "ids": {
+            "id": {
                 "type": "string",
                 "format": "uuid"
             }
