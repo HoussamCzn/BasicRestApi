@@ -3,10 +3,10 @@ module.exports = {
     "description": "Représente un utilisateur",
     "type": "object",
     "properties": {
-        "last_name": {
+        "lastName": {
             "type": "string"
         },
-        "first_name": {
+        "firstName": {
             "type": "string"
         },
         "email": {
@@ -28,6 +28,6 @@ module.exports = {
             "format": "uuid"
         }
     },
-    "required": ["id", "last_name", "first_name", "email", "birthday"],
+    "required": ["id", "lastName", "firstName", "email", "birthday"],
     "additionalProperties": false
 }
