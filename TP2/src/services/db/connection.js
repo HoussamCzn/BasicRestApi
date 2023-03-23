@@ -16,7 +16,7 @@ async function connectTodB() {
         // Establish and verify connection
         await client.db('admin').command({ ping: 1 });
         console.log('Connected successfully to server');
-    } catch (e) {
+    } catch (err) {
         // Ensures that the client will close when you finish/error
         console.log(JSON.stringify(err));
         await client.close();
