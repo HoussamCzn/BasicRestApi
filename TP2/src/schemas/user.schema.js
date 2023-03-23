@@ -13,7 +13,7 @@ module.exports = {
             "type": "string",
             "format": "email"
         },
-        "birthday": {
+        "birthdate": {
             "type": "string"
         },
         "watchlists": {
@@ -28,6 +28,6 @@ module.exports = {
             "format": "uuid"
         }
     },
-    "required": ["id", "lastName", "firstName", "email", "birthday"],
+    "required": ["id", "lastName", "firstName", "email", "birthdate"],
     "additionalProperties": false
 }
