@@ -1,6 +1,6 @@
 const { getCollection } = require('./connection');
 
-async function findOne(collectionName, query, options = {}) {
+const findOne = async (collectionName, query, options = {}) => {
 	try {
 		const collection = getCollection(collectionName);
 		const result = await collection.findOne(query, options);
@@ -12,7 +12,7 @@ async function findOne(collectionName, query, options = {}) {
 	}
 }
 
-async function find(collectionName, query, options = {}) {
+const find = async (collectionName, query, options = {}) => {
     try {
         const collection = getCollection(collectionName);
         const result = await collection.find(query, options).toArray();
@@ -24,7 +24,7 @@ async function find(collectionName, query, options = {}) {
     }
 }
 
-async function insertOne(collectionName, document, options = {}) {
+const insertOne = async (collectionName, document, options = {}) => {
     try {
         const collection = getCollection(collectionName);
         const result = await collection.insertOne(document, options);
@@ -36,7 +36,7 @@ async function insertOne(collectionName, document, options = {}) {
     }
 }
 
-async function insertMany(collectionName, documents, options = {}) {
+const insertMany = async (collectionName, documents, options = {}) => {
     try {
         const collection = getCollection(collectionName);
         const result = await collection.insertMany(documents, options);
@@ -48,7 +48,7 @@ async function insertMany(collectionName, documents, options = {}) {
     }
 }
 
-async function updateOne(collectionName, filter, update, options = {}) {
+const updateOne = async (collectionName, filter, update, options = {}) => {
     try {
         const collection = getCollection(collectionName);
         const result = await collection.updateOne(filter, update, options);
@@ -60,7 +60,7 @@ async function updateOne(collectionName, filter, update, options = {}) {
     }
 }
 
-async function updateMany(collectionName, filter, update, options = {}) {
+const updateMany = async (collectionName, filter, update, options = {}) => {
     try {
         const collection = getCollection(collectionName);
         const result = await collection.updateMany(filter, update, options);
@@ -72,7 +72,7 @@ async function updateMany(collectionName, filter, update, options = {}) {
     }
 }
 
-async function replace(collectionName, filter, replacement, options = {}) {
+const replace = async (collectionName, filter, replacement, options = {}) => {
     try {
         const collection = getCollection(collectionName);
         const result = await collection.replaceOne(filter, replacement, options);
@@ -84,7 +84,7 @@ async function replace(collectionName, filter, replacement, options = {}) {
     }
 }
 
-async function deleteOne(collectionName, filter, options = {}) {
+const deleteOne = async (collectionName, filter, options = {}) => {
     try {
         const collection = getCollection(collectionName);
         const result = await collection.deleteOne(filter, options);
@@ -96,7 +96,7 @@ async function deleteOne(collectionName, filter, options = {}) {
     }
 }
 
-async function deleteMany(collectionName, filter, options = {}) {
+const deleteMany = async (collectionName, filter, options = {}) => {
     try {
         const collection = getCollection(collectionName);
         const result = await collection.deleteMany(filter, options);
