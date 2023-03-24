@@ -3,6 +3,9 @@ module.exports = {
     "description": "Représente la watchlist d'un utilisateur",
     "type": "object",
     "properties": {
+        "name": {
+            "type": "string"
+        },
         "items": {
             "type": "array",
             "details": {
