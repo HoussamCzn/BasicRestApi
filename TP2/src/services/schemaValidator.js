@@ -4,7 +4,6 @@ const _ = require("lodash");
 function validateSchemaMiddleware(schema) {
     return (req, res, next) => {
         item = req.query;
-        console.log(item)
         const validation = validate(item, schema);
         if (_.isEmpty(validation.errors)) {
             return next();
