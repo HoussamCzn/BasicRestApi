@@ -13,10 +13,10 @@ module.exports = {
             "type": "string"
         },
         "duration": {
-            "type": "number"
+            "type": "string"
         },
         "tmdbId": {
-            "type": "number"
+            "type": "string"
         },
         "id": {
             "type": "string",
