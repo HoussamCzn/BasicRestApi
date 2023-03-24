@@ -4,17 +4,7 @@ const collection = "users"
 
 const createUser = async (req, res) => {
     try {
-        console.log(req.query);
-        const user = {
-            lastName: req.query.lastName,
-            firstName: req.query.firstName,
-            email: req.query.email,
-            birthdate: req.query.birthdate,
-            watchlists: req.query.watchlists === undefined ? [] : req.query.watchlists.split(','),
-            id: req.query.id
-        };
-        console.log(user);
-        const result = await insertOne(collection, user);
+        const result = await insertOne(collection, req.query);
         return res.status(200).json(result);
     } catch (err) {
         return res.status(500).json(
