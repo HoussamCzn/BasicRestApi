@@ -18,7 +18,7 @@ module.exports = {
         },
         "watchlists": {
             "type": "array",
-            "id": {
+            "items": {
                 "type": "string",
                 "format": "uuid"
             }
@@ -28,6 +28,6 @@ module.exports = {
             "format": "uuid"
         }
     },
-    "required": ["id", "lastName", "firstName", "email", "birthdate"],
+    "required": ["lastName", "firstName", "email", "birthdate", "id"],
     "additionalProperties": false
 }
