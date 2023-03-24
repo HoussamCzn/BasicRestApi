@@ -15,7 +15,7 @@ module.exports = {
         "duration": {
             "type": "number"
         },
-        "tmdb_id": {
+        "tmdbId": {
             "type": "number"
         },
         "id": {
@@ -23,6 +23,6 @@ module.exports = {
             "format": "uuid"
         }
     },
-    "required": ["id", "title", "genre", "language", "duration", "tmdb_id"],
+    "required": ["id", "title", "genre", "language", "duration", "tmdbId"],
     "additionalProperties": false
 }
