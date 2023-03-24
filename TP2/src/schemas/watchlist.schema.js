@@ -5,11 +5,11 @@ module.exports = {
     "properties": {
         "items": {
             "type": "array",
-            "détails": {
+            "details": {
                 "type": "object",
                 "properties": {
                     "item_id": "number",
-                    "statut": {
+                    "status": {
                         "enum": ["must-see", "ongoing", "finished", "dropped"]
                     }
                 }

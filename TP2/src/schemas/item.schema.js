@@ -7,10 +7,10 @@ module.exports = {
             "type": "string"
         },
         "genre": {
-            "type": "string",
+            "type": "string"
         },
         "language": {
-            "type": "string",
+            "type": "string"
         },
         "duration": {
             "type": "number"
