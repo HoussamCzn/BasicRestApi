@@ -1,7 +1,7 @@
 const express = require('express');
 const { getUUID } = require('../services/uuidProvider');
 const userSchema = require('../schemas/user.schema')
-const { validateSchemaMiddleware, validateSchema } = require('../services/validateSchema');
+const { validateSchemaMiddleware, validateSchema } = require('../services/schemaValidator');
 const { createUser, getUsers } = require('../controllers/users');
 
 const router = express.Router();
