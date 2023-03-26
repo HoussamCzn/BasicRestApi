@@ -15,6 +15,20 @@ const createItem = async (req, res) => {
     }
 }
 
+const getItems = async (req, res) => {
+    try {
+        const result = await find(collection, req.query);
+        return res.status(200).json(result);
+    } catch (err) {
+        return res.status(500).json(
+            {
+                error: err.message,
+            }
+        );
+    }
+}
+
 module.exports = {
-    createItem
+    createItem,
+    getItems
 }
