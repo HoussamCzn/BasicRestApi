@@ -13,16 +13,16 @@ module.exports = {
             "type": "string"
         },
         "duration": {
-            "type": "string"
+            "type": "number"
         },
         "tmdbId": {
-            "type": "string"
+            "type": "number"
         },
         "id": {
             "type": "string",
             "format": "uuid"
         }
     },
-    "required": ["id", "title", "genre", "language", "duration", "tmdbId"],
+    "required": ["title", "genre", "language", "duration", "tmdbId", "id"],
     "additionalProperties": false
 }

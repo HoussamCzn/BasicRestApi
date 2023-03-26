@@ -8,10 +8,13 @@ module.exports = {
         },
         "items": {
             "type": "array",
-            "details": {
+            "items": {
                 "type": "object",
                 "properties": {
-                    "item_id": "number",
+                    "item_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
                     "status": {
                         "enum": ["must-see", "ongoing", "finished", "dropped"]
                     }
@@ -27,6 +30,6 @@ module.exports = {
             "format": "uuid"
         }
     },
-    "required": ["owner", "id"],
+    "required": ["name", "owner", "id"],
     "additionalProperties": false
 }
