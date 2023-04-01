@@ -10,8 +10,8 @@ const getMovieByTitle = async (req, res, next) => {
         const response = await axios.get(fullUrl)
         const movie = {
             title: response.data.Title,
-            genre: response.data.Genre,
-            language: response.data.Language,
+            genre: response.data.Genre.split(',')[0],
+            language: response.data.Language.split(',')[0],
             duration: response.data.Runtime,
             imdbId: response.data.imdbID
         }
