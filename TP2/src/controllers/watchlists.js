@@ -17,14 +17,16 @@ const createWatchlist = async (req, res) => {
 
 const addItemToWatchlist = async (req, res) => {
     try {
-        const item = JSON.parse(req.query.item);
         const result = await updateOne(collection,
             {
                 name: req.query.name
             },
             {
                 $push: {
-                    items: item
+                    items: {
+                        item_id: req.query.item_id,
+                        status: req.query.status
+                    }
                 }
             }
         )
