@@ -7,7 +7,7 @@ const { createItem, getItems } = require('../controllers/items');
 
 const router = express.Router();
 
-router.post("/create", getMovieByTitle, getUUID ,validateSchemaMiddleware(itemSchema), createItem);
+router.post("/create", getMovieByTitle, getUUID, validateSchemaMiddleware(itemSchema), createItem);
 router.get("/items", getItems);
 
 module.exports = router;
