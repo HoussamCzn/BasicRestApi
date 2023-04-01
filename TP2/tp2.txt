@@ -1,0 +1,3 @@
+4) Cela évite de devoir entrer les informations de connexion à la dure dans le code. Cela permet également de pouvoir les afficher et les retrouver plus simplement.
+
+5) findOne sert à récupérer un seul élément qui correspond aux critères demandés.
