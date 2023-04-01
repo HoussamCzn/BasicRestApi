@@ -1,6 +1,8 @@
 {
     "tp2": {
         "databaseUrl": "mongodb://localhost:27017",
-        "databaseName": "watchlistdb"
+        "databaseName": "watchlistdb",
+        "omdbUrl": "http://www.omdbapi.com/",
+        "omdbKey": "your_key"
     }
 }
