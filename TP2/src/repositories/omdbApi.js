@@ -7,7 +7,6 @@ const apiKey = conf.tp2.omdbKey
 const getMovieByTitle = async (req, res, next) => {
     try {
         const fullUrl = `${url}?t=${req.query.title}&apikey=${apiKey}`
-        console.log(fullUrl)
         const response = await axios.get(fullUrl)
         const movie = {
             title: response.data.Title,
