@@ -34,16 +34,6 @@ function validateSchemaMiddleware(schema) {
     };
 }
 
-function validateSchema(schema, item) {
-    const validation = validate(item, schema);    
-    if (_.isEmpty(validation.errors)) {
-        return true;
-    } else {
-        return validation.errors;
-    }
-}
-
 module.exports = {
-    validateSchemaMiddleware,
-    validateSchema,
+    validateSchemaMiddleware
 };
