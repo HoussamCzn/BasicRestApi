@@ -7,6 +7,6 @@ const { createUser, getUsers } = require('../controllers/users');
 const router = express.Router();
 
 router.post("/create", getUUID, validateSchemaMiddleware(userSchema), createUser);
-router.get("/retrieve", getUsers);
+router.get("/users", getUsers);
 
 module.exports = router;
