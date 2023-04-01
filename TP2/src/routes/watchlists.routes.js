@@ -9,9 +9,9 @@ const {
 const router = express.Router();
 
 router.post("/create", getUUID, validateSchemaMiddleware(watchlistsSchema), createWatchlist);
-router.post("/add/item", addItemToWatchlist);
+router.post("/add/item", validateSchemaMiddleware(watchlistsSchema.properties["items"].items), addItemToWatchlist);
 router.get("/content", getWatchlistContent);
-router.post("/edit/status", editItemStatus);
+router.post("/edit/status", validateSchemaMiddleware(watchlistsSchema.properties["items"].items), editItemStatus);
 router.get("/user/watchlists", getUserWatchlists);
 
 module.exports = router;
