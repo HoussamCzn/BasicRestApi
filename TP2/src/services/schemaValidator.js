@@ -4,13 +4,17 @@ const _ = require("lodash");
 function _matchSchema(schema, item) {
     for (const [name, property] of Object.entries(schema.properties)) {
         if (property.type === "array") {
-            if (property.items.type === "object") {
-                item[name] = JSON.parse(item[name]);
+            if (item[name] === undefined) {
+                item[name] = [];
             } else {
-                item[name] = item[name].split(",");
-                item[name] = item[name].map((item) => item.trim());
-                if (property.items.type === "number") {
-                    item[name] = item[name].map((item) => Number(item));
+                if (property.items.type === "object") {
+                    item[name] = JSON.parse(item[name]);
+                } else {
+                    item[name] = item[name].split(",");
+                    item[name] = item[name].map((item) => item.trim());
+                    if (property.items.type === "number") {
+                        item[name] = item[name].map((item) => Number(item));
+                    }
                 }
             }
         } else if (property.type === "object") {
